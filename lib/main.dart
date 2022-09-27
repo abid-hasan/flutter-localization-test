@@ -32,16 +32,14 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: const MyHomePage(title: 'Flutter Demo Home Page'),
+            home: MyHomePage(),
           );
         });
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -61,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final provider = Provider.of<LocalProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(AppLocalizations.of(context)!.appbar_title),
       ),
       body: Center(
         child: Column(

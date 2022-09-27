@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
   "home_text": "You have pushed the button:",
-  "times": "times"
+  "times": "times",
+  "appbar_title" : "Testing app"
 }
