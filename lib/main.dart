@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:multiple_localization_test/l10n/l10n.dart';
 import 'package:multiple_localization_test/provider/locale_provider.dart';
 import 'package:provider/provider.dart';
@@ -57,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<LocalProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -67,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(AppLocalizations.of(context)!.home_text),
             Text(
-              '$_counter',
+              NumberFormat("0",
+                      provider.locale?.toString() ?? L10N.all[0].toString())
+                  .format(_counter),
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(AppLocalizations.of(context)!.times),
